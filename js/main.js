@@ -44,10 +44,10 @@ const sorted = inventors.sort(function (a, b) {
         return -1;
     }
 })
-// console.table(sorted)
+console.table(sorted)
 
 const sortedTwo = inventors.sort((a, b) => a.year > b.year ? 1 : -1)
-// console.table(sortedTwo)
+console.table(sortedTwo)
 
 
 // Array.prototype.reduce()
@@ -72,11 +72,11 @@ console.table(sortedByYearsLived)
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
-// const category = document.querySelector('.mw-category');
-// const links = Array.from(category.querySelectorAll('a'));
-// const de = links
-//     .map(link => link.textContent)
-//     .filter(streetName => streetName.includes('de'));
+const category = document.querySelector('.mw-category');
+const links = Array.from(category.querySelectorAll('a'));
+const de = links
+    .map(link => link.textContent)
+    .filter(streetName => streetName.includes('de'));
 
 
 // 7. sort Exercise
@@ -92,3 +92,13 @@ console.log(alpha)
 // 8. Reduce Exercise
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
+
+const transportation = data.reduce(function (obj, item) {
+    if (!obj[item]) {
+        obj[item] = 0
+    }
+    obj[item]++
+    return obj
+}, {})
+
+console.log(transportation)
